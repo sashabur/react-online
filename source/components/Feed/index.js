@@ -25,7 +25,7 @@ export default class Feed extends Component {
 		const { avatar, currentUserFirstName, currentUserLastName } = this.props;
 		return (
 			<section className = {Styles.feed}>
-				<Spinner {...isSpinning} />
+				<Spinner isSpinning = {this.state.isSpinning} />
 				<StatusBar {...this.props} />
 				<Composer {...this.props} />
 				{postsJSX}
