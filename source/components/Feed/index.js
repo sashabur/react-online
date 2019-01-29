@@ -16,7 +16,7 @@ export default class Feed extends Component {
 		isSpinning: false,
 	}
 	render () {
-		const { posts, isSpinning } = this.state;
+		const { posts } = this.state;
 
 		const postsJSX = posts.map((post) => {
 			return <Post key = { post.id } { ...post } />;
