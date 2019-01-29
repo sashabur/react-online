@@ -6,7 +6,6 @@
 /coverage/
 /flow-coverage/
 /jest/
-/webpack/
 
 # Files
 *.log
