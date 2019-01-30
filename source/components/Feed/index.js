@@ -16,7 +16,7 @@ export default class Feed extends Component {
 		isSpinning: false,
 	}
 	render () {
-		const { posts } = this.state;
+		const { posts, isSpinning } = this.state;
 
 		const postsJSX = posts.map((post) => {
 			return <Post key = { post.id } { ...post } />;
@@ -25,7 +25,7 @@ export default class Feed extends Component {
 		const { avatar, currentUserFirstName, currentUserLastName } = this.props;
 		return (
 			<section className = {Styles.feed}>
-				<Spinner isSpinning = {this.state.isSpinning} /> 
+				<Spinner isSpinning = {isSpinning} /> 
 				<StatusBar {...this.props} />
 				<Composer {...this.props} />
 				{postsJSX}
