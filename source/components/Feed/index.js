@@ -99,8 +99,8 @@ export default class Feed extends Component {
 		this._setPostsFetchingState(true);
 		await delay(1200);
 
-		const deletedPost = this.state.posts.filter(function(postToDelete) {
-			return postToDelete.id !== id
+		const deletedPost = this.state.posts.filter(function(postsAfterDelete) {
+			return postsAfterDelete.id !== id
 		});
 
 		this.setState({
