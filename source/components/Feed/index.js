@@ -16,6 +16,7 @@ export default class Feed extends Component {
 		this._createPost = this._createPost.bind(this);
 		this._setPostsFetchingState = this._setPostsFetchingState.bind(this);
 		this._likePost = this._likePost.bind(this);
+		this._deletePost = this._deletePost.bind(this);
 	};
 
 	state = {
@@ -94,15 +95,28 @@ export default class Feed extends Component {
 	}
     
 
+	async _deletePost (id) {
+		this._setPostsFetchingState(true);
+		await delay(1200);
+
+		const deletedPost = this.state.posts.filter(function(postToDelete) {
+			return postToDelete.id !== id
+		});
+
+		this.setState({
+			posts: deletedPost,
+			isPostFetching: false,
+		});
+
+	}
 
 	render () {
 		const { posts, isPostFetching } = this.state;
 
 		const postsJSX = posts.map((post) => {
-			return <Post key = { post.id } { ...post } _likePost = { this._likePost } />;
+			return <Post key = { post.id } { ...post } _likePost = { this._likePost } _deletePost = { this._deletePost } />;
 		});
 
-		const { avatar, currentUserFirstName, currentUserLastName } = this.props;
 		return (
 			<section className = {Styles.feed}>
 				<Spinner isSpinning = {isPostFetching} /> 
