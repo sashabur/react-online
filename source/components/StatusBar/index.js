@@ -3,9 +3,9 @@ import React, {Component} from 'react';
 import {withProfile} from 'components/HOC/withProfile';
 
 import Styles from './styles.m.css';
+import Composer from '../Composer';
 
-@withProfile
-export default class StatusBar extends Component {
+class StatusBar extends Component {
     render () {
         const { avatar, currentUserFirstName, currentUserLastName } = this.props;
 
@@ -21,3 +21,5 @@ export default class StatusBar extends Component {
         )
     }
 }
+
+export default withProfile(StatusBar);

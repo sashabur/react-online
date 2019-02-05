@@ -92,10 +92,10 @@ export default class Feed extends Component {
 		this._setPostsFetchingState(true);
 		await delay(1200);
 
-		this.setState({
-			posts: this.state.posts.filter(postsAfterDelete => postsAfterDelete.id !== id ),
+		this.setState(({ posts }) => ({
+			posts: posts.filter(postsAfterDelete => postsAfterDelete.id !== id ),
 			isPostFetching: false,
-		});
+		}));
 
 	}
 

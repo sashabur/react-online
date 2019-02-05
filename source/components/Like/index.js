@@ -5,8 +5,7 @@ import cx from 'classnames';
 import { withProfile } from 'components/HOC/withProfile';
 import Styles from './styles.m.css';
 
-@withProfile
-export default class Like extends Component {
+class Like extends Component {
     static propTypes = {
         _likePost:  func.isRequired,
         id:         string.isRequired,
@@ -106,3 +105,5 @@ export default class Like extends Component {
         );
     }
 }
+
+export default withProfile(Like);
